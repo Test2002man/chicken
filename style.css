@@ -1,0 +1,226 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;900&display=swap");
+/* custom css variables */
+:root {
+  --main-color: #5769cc;
+  --second-color: #ef5350;
+  --bg-black-900: #000000;
+  --bg-black-50: #f2f2f2;
+  --text-black-900: #000000;
+  --text-black-700: #555555;
+  --text-black-600: #666666;
+  --text-black-300: #bbbbbb;
+  --outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px #f8f8f8;
+  --outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
+  --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+  --inner-shadow-0: inset 0 0 0 #d0d0d0, inset 0 0 0 #f8f8f8;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--bg-black-50);
+  font-family: "Raleway", "sans-serif";
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+::before,
+::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.outer-shadow {
+  box-shadow: var(--outer-shadow);
+}
+.inner-shadow {
+  box-shadow: var(--inner-shadow);
+}
+/* to remove outer shadow and make transition when hover */
+.hover-in-shadow {
+  position: relative;
+  z-index: 1;
+}
+.hover-in-shadow:hover {
+  box-shadow: var(--outer-shadow-0);
+}
+.hover-in-shadow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.hover-in-shadow:hover:after {
+  box-shadow: var(--inner-shadow);
+}
+
+/* Responsive start */
+/* mobile screen */
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+/* small */
+@media (min-width: 767px) {
+  .container {
+    width: 720px;
+  }
+}
+/* Large */
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+/* x-Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+/* Responsive end */
+.chicken-section {
+  height: 100vh;
+  position: relative;
+}
+.chicken-section .image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  width: 300px;
+  height: 300px;
+}
+.chicken-section .image img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  animation: rotateTop 1.5s ease-in-out infinite;
+}
+.chicken-section .image img.active {
+  animation: rotateLeft 1.5s ease-in-out infinite;
+}
+.chicken-section .image img.stop {
+  animation: none;
+}
+.chicken-section .image img.special {
+  animation: rotateBottomRight 1.5s ease-in-out infinite;
+}
+
+.chicken-section .text {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 30px;
+}
+.chicken-section .text .password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chicken-section .text p {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 30px;
+  color: var(--text-black-700);
+}
+@media (max-width: 767px) {
+  .chicken-section .text p {
+    font-size: 21px;
+  }
+}
+.chicken-section .text input {
+  display: block;
+  width: 200px;
+  height: 30px;
+  margin: 0 auto;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 0 15px;
+  border: 1px solid var(--text-black-300);
+  border-radius: 5px;
+}
+.chicken-section .text input::placeholder {
+  color: #6e8189;
+}
+.chicken-section .password i {
+  position: absolute;
+  left: 73%;
+  font-size: 14.5px;
+  color: var(--text-black-700);
+  cursor: pointer;
+}
+@keyframes rotateBottomRight {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(150px, 50px);
+  }
+}
+@keyframes rotateTop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(50px);
+  }
+}
+@keyframes rotateLeft {
+  0%,
+  100% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+}
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  z-index: 6;
+}
