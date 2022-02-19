@@ -54,17 +54,17 @@ play.addEventListener("click",()=>{
         image.classList.remove("stop");
 
         image.setAttribute("src","3.png");
-        audio.setAttribute("src","audio/chicken.mp3");
+        audio.setAttribute("src","chicken.mp3");
         audio.play();
         
     }else if(p.value==="dance"){
         image.classList.add("special");
         image.setAttribute("src","2.png");      
-          audio.setAttribute("src","audio/coco.mp3");
+          audio.setAttribute("src","coco.mp3");
         audio.play();
     }else{
         image.setAttribute("src","1.png");
-        audio.setAttribute("src","audio/ring.mp3");
+        audio.setAttribute("src","ring.mp3");
         audio.play();
     }
 })
